@@ -1,0 +1,251 @@
+/* .modal-default .modal-body {
+  background-color: rgb(254, 254, 254);
+  z-index: 1000;
+  bottom: 30px;
+} */
+.modal-default .modal-header {
+  border-bottom: unset;
+}
+
+.form-casado {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-nome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-casado p {
+  position: relative;
+  left: 30%;
+  width: 150px;
+  text-align: center;
+  top: -40px;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 90px 0 0px 0px;
+  align-items: center;
+  font-weight: 800;
+
+}
+
+.form-nome p {
+  position: relative;
+  left: 18%;
+  /* width: 150px; */
+  text-align: center;
+  top: -75px;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 80px 0 50px 0px;
+  font-weight: 800;
+
+}
+
+.switch {
+  position: absolute;
+  left: 50%;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  margin: -30px 0 0 -75px;
+  background: rgba(77, 77, 77, 0.095);
+  transition: all 0.2s ease;
+  border-radius: 25px;
+  z-index: 3;
+  font-weight: 800
+}
+
+.switch span {
+  position: absolute;
+  width: 20px;
+  height: 4px;
+  top: 50%;
+  left: 49.5%;
+  margin: -2px 0px 0px -4px;
+  background: transparent;
+  display: block;
+  transform: rotate(-45deg);
+  transition: all .2s ease;
+  border-radius: 2px;
+}
+
+.switch span:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 4px;
+  height: 12px;
+  margin-top: -8px;
+  background: transparent;
+  transition: all 0.2s ease;
+  border-radius: 2px;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+.switch label {
+  cursor: pointer;
+  color: rgba(#000, .2);
+  width: 75px;
+  line-height: 50px;
+  transition: all 0.2s ease;
+}
+
+label[for=yes] {
+  position: absolute;
+  left: 11px;
+  height: 20px;
+}
+
+label[for=no] {
+  position: absolute;
+  right: -15px;
+}
+
+#no:checked~.switch {
+  background: #ff3b30;
+}
+
+#no:checked~.switch span {
+  background: white;
+  margin-left: -10px;
+}
+
+#no:checked~.switch span::after {
+  background: #fff;
+  height: 20px;
+  margin-top: -8px;
+  margin-left: 8px;
+}
+
+#yes:checked~.switch {
+  background: #2BC4C3;
+}
+
+#yes:checked~.switch span {
+  background: white;
+  margin: -2px 0px 0px -4px;
+  ;
+}
+
+#yes:checked~.switch span::after {
+  background: #fff;
+  width: 4px;
+  height: 12px;
+  margin-top: -8px;
+}
+
+#yes:checked~.switch label[for=yes] {
+  color: white;
+}
+
+#no:checked~.switch label[for=no] {
+  color: white;
+}
+
+label[for=married] {
+  position: absolute;
+  left: 20px;
+  height: 20px;
+}
+
+label[for=not-married] {
+  position: absolute;
+  right: -25px;
+}
+
+#not-married:checked~.switch {
+  background: #ff3b30;
+}
+
+#not-married:checked~.switch span {
+  background: white;
+  margin-left: -10px;
+}
+
+#not-married:checked~.switch span::after {
+  background: #fff;
+  height: 20px;
+  margin-top: -8px;
+  margin-left: 8px;
+}
+
+#married:checked~.switch {
+  background: #2BC4C3;
+}
+
+#married:checked~.switch span {
+  background: white;
+  margin: -2px 0px 0px -4px;
+  ;
+}
+
+#married:checked~.switch span::after {
+  background: #fff;
+  width: 4px;
+  height: 12px;
+  margin-top: -8px;
+}
+
+#married:checked~.switch label[for=married] {
+  color: white;
+}
+
+#not-married:checked~.switch label[for=not-married] {
+  color: white;
+}
+
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {
+    bottom: -300px;
+    opacity: 0
+  }
+
+  to {
+    bottom: 0;
+    opacity: 1
+  }
+}
+
+@keyframes slideIn {
+  from {
+    bottom: -300px;
+    opacity: 0
+  }
+
+  to {
+    bottom: 0;
+    opacity: 1
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}

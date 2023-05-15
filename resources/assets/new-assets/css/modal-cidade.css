@@ -1,0 +1,32 @@
+.select2-container--open .select2-dropdown--below {
+    width: 100% !important;
+}
+
+.modal-info .modal-body .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+    width: 600px;
+}
+
+.select2-container {
+    display: block;
+    margin: 0 auto;
+    width: 65%;
+}
+
+span.select2 {
+    width: 65% !important;
+    border-bottom: 1px solid #ccc;
+}
+
+.select2-container--open {
+    position: unset !important;
+    top: unset !important;
+    left: unset !important;
+}
+
+.select2-dropdown {
+    position: unset;
+}
+
+.select2-search__field::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}

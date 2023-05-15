@@ -1,0 +1,78 @@
+version: '3.4'
+
+services:
+  app:
+    build:
+      args:
+        user: mudarnome
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: mudarnome
+    container_name: mudarnome-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    ports:
+      - "6001:6001"
+    volumes:
+      - ./:/var/www
+    networks:
+      - mudarnome_network
+
+  mysql:
+    image: mysql:5.7
+    container_name: mudarnome-mysql
+    restart: unless-stopped
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+      - ./docker-compose/mysql/dbdata:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+    networks:
+      - mudarnome_network
+
+  phpmyadmin:
+    container_name: mudarnome-phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    depends_on:
+      - mysql
+    networks:
+      - mudarnome_network
+    links:
+      - mysql
+      - app
+    environment:      
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
+      - PMA_ARBITRARY=1
+    ports:
+      - 8081:80
+
+  nginx_app:
+    image: nginx:alpine
+    container_name: mudarnome-nginx
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+      - "443:443"
+    environment:
+      - NGINX_port=80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d
+    links:
+      - mysql
+      - app
+    networks:
+      - mudarnome_network
+
+networks:
+  mudarnome_network:
+    driver: bridge
+
